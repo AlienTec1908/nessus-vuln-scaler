@@ -1,5 +1,9 @@
 # 🚀 Nessus Scans scale v1.0
 
+<p align="center">
+  <img src="cover.png" alt="agent-image-ripper cover" width="50%" style="height: 20rem;">
+</p>
+
 Tired of drowning in endless Nessus CSV reports? This is your lifeboat. A pragmatic, zero-dependency PowerShell pipeline to turn vulnerability chaos into actionable clarity.
 
 ---
