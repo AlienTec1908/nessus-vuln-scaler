@@ -1,7 +1,7 @@
 # 🚀 Nessus Scans Scale v1.0
 
 <p align="center">
-  <img src="cover.png" alt="Nessus Scans Scale" width="50%" style="height: 20rem;">
+  <img src="nessus.png" alt="Nessus Scans Scale" width="50%" style="height: 20rem;">
 </p>
 
 Tired of drowning in endless Nessus CSV reports?  
