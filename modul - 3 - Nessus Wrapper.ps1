@@ -15,7 +15,7 @@ $Filter    = $Filter | sort | unique
 [array]$Filter    = $Filter | sort | ?{ $_ -notmatch '^\s*$' }
 
 write-host -ForegroundColor Yellow "`n`t`t`t`t`t"  $Filter.Count -NoNewline
-write-host -ForegroundColor Magenta " Schwachstellen `n"
+write-host -ForegroundColor Magenta " vulnerabilities `n"
 
 foreach( $line in $Filter  ){
 
@@ -28,3 +28,4 @@ if($line -match "High"){
     write-host -ForegroundColor red $line  
   }
 }
+
