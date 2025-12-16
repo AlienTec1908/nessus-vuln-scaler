@@ -1,7 +1,7 @@
 ﻿cls
 mkdir "$env:USERPROFILE\Desktop\Nessusscans\"
-Write-host -ForegroundColor cyan "Alle CSV Nessus Scan ausgabe Dateien müssen in einem Verzeichnis sein!`n`nEs wurde ein neues Verzeichnis angelegt für Die Auswertung:`n$($env:USERPROFILE)\Desktop\Nessusscans"
-$pfad_rz1 = Read-Host "Bitte Pfad  der CSV Nessus Scan Dateien eingeben:" 
+Write-host -ForegroundColor cyan "All Nessus Scan CSV output files must be in one directory!`n`nA new directory has been created for the evaluation:`n$($env:USERPROFILE)\Desktop\Nessusscans"
+$pfad_rz1 = Read-Host "Please enter the path to the Nessus Scan CSV files:" 
 
 $csvkomplett  = cat "$pfad_rz1\*.csv" 
 
@@ -12,7 +12,7 @@ $CSVcountCVE = $csvkomplett | Select-String -Pattern "CVE-".count
 
 cls
 
-write-host -ForegroundColor Green "insgesamt Einträge: $CSVcountAll , und $CSVcountCVE Schwachstellen" 
+write-host -ForegroundColor Green "Total entries: $CSVcountAll , with $CSVcountCVE vulnerabilities" 
 
 $FormatCVE = $( 
 
@@ -29,7 +29,7 @@ $Systeme = $($FormatCVE | sort | unique)
 
 [array]$Windows = ("Microsoft", "Explorer", "Update", "Windows")
 
-write-host -ForegroundColor Green "insgesamt Einträge: $Anzahl , und Schwachstellen:`n"
+write-host -ForegroundColor Green "Total unique entries: $Anzahl , vulnerabilities:`n"
 
 $Microsoft = $Systeme | select-string -Pattern "Microsoft", "Explorer" , "Windows", "MS\d+", "KB", "winSCP" 
 $Microsoft = $Microsoft | where{ $_ -notmatch "Host - Name" }
@@ -47,7 +47,7 @@ $LinuxApps = $LinuxApps | where{ $_ -notmatch "Host - Name" }
 
 write-host -ForegroundColor Green "`n--------------------------------------------------------------------------------------------`n" 
 
-write-host -ForegroundColor Green "`n`t`t`t`t$($LinuxApps.count) Linux und Apps Schwachstellen `n" 
+write-host -ForegroundColor Green "`n`t`t`t`t$($LinuxApps.count) Linux and App vulnerabilities`n"
 
 write-host -ForegroundColor Green "`n--------------------------------------------------------------------------------------------`n" 
 
@@ -55,12 +55,13 @@ $LinuxApps
 
 write-host -ForegroundColor Green "`n--------------------------------------------------------------------------------------------`n"
 
-write-host -ForegroundColor Yellow "`n`t`t`t`t$($Microsoft.count) Windows Schwachstellen`n" 
+write-host -ForegroundColor Yellow "`n`t`t`t`t$($Microsoft.count) Windows vulnerabilities`n" 
 
 write-host -ForegroundColor Yellow "`n--------------------------------------------------------------------------------------------`n"
 $Microsoft | Out-File "$env:USERPROFILE\Desktop\Nessusscans\Nessus - Schwachstellenliste mit Hosts sortiert.txt"
 
 write-host -ForegroundColor Yellow "`n--------------------------------------------------------------------------------------------`n" 
+
 
 
  
