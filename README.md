@@ -1,10 +1,15 @@
-# 🚀 Nessus Scans scale v1.0
+# 🚀 Nessus Scans Scale v1.0
 
 <p align="center">
-  <img src="cover.png" alt="agent-image-ripper cover" width="50%" style="height: 20rem;">
+  <img src="cover.png" alt="Nessus Scans Scale" width="50%" style="height: 20rem;">
 </p>
 
-Tired of drowning in endless Nessus CSV reports? This is your lifeboat. A pragmatic, zero-dependency PowerShell pipeline to turn vulnerability chaos into actionable clarity.
+Tired of drowning in endless Nessus CSV reports?  
+This is your lifeboat. A pragmatic, zero-dependency PowerShell pipeline to turn vulnerability chaos into actionable clarity.
+
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+![Platform](https://img.shields.io/badge/Platform-Windows-blue.svg)
+![PowerShell](https://img.shields.io/badge/PowerShell-Required-blue.svg)
 
 ---
 
