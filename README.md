@@ -13,58 +13,102 @@ This is your lifeboat. A pragmatic, zero-dependency PowerShell pipeline to turn 
 
 ---
 
-### ✨ Core Features
+## ✨ Core Features
 
-*   **⚙️ Automated Triage:** Ingests multiple raw Nessus CSV files and instantly filters out the noise, focusing only on actionable CVEs.
-*   **📊 Smart Categorization:** Automatically sorts vulnerabilities into logical groups (Windows vs. Linux/Apps), telling you which team is responsible for what.
-*   **🔗 Host-Vulnerability Pivot:** Transforms data from a host-centric view to a vulnerability-centric one, answering the most critical question: *"Which systems are affected by this specific vulnerability?"*
-*   **🎨 Color-Coded Prioritization:** Translates complex risk levels into a simple, intuitive, color-coded list. See what's critical (🔴) and what's high-priority (🟡) in seconds.
-*   **🛡️ Zero Dependencies:** Pure, battle-tested PowerShell. No libraries, no complex setup. It just works.
+- **Automated Triage**  
+  Ingests multiple raw Nessus CSV files and filters out the noise, focusing only on actionable CVEs.
 
-###  philosophy: The "Why" Behind the "How"
+- **Smart Categorization**  
+  Automatically separates Windows, Linux and application findings so responsibility is instantly clear.
 
-This tool wasn't built in a lab. It was forged in the trenches of corporate IT, born from the pain of manually processing thousands of vulnerability findings week after week.
+- **Host–Vulnerability Pivot**  
+  Converts host-centric data into a vulnerability-centric view:  
+  *Which systems are affected by this CVE?*
 
-It doesn't follow a textbook. It follows a single, ruthless principle: **Get the job done.**
+- **Color-Coded Prioritization**  
+  Critical and high-risk issues are highlighted directly in the terminal for instant triage.
 
-The methods are direct and pragmatic because the real world is messy. While other complex parsers fail with the slightest format change, this tool's robust, fundamental approach has proven its worth in the field. It’s not about elegance. It’s about reliability.
+- **Zero Dependencies**  
+  Pure PowerShell. No modules, no installs, no friction.
 
-### 🛣️ From Chaos to Clarity: The 3-Step Pipeline
+---
 
-This isn't just one script; it's a complete, automated workflow in three modules that run sequentially.
+## Philosophy – Why this tool exists
 
-#### **Module 1: The Aggregator**
-Takes your raw, chaotic data dumps from one or more scans and transforms them into a single, clean, and categorized list. It's the first filter that reduces thousands of lines to the few hundred that actually matter.
+This tool wasn’t built in a lab.  
+It was forged in real corporate environments where thousands of findings must be processed fast.
 
-#### **Module 2: The Correlation Engine**
-This is the analytical core. It pivots the data to create a master list of unique vulnerabilities and provides a clear overview of every single host affected by each one. No more guessing. Just facts.
+No theory. No beauty contests.  
+One principle only:
 
-#### **Module 3: The Triage Visualizer**
-The final step translates the technical findings into a language everyone understands. It delivers a simple, color-coded priority list directly in your terminal. This is the "at-a-glance" view that tells you where the fire is hottest.
+**Get the job done.**
 
-### 🎯 How to Use
+The approach is intentionally pragmatic.  
+When other parsers break on minor format changes, this one keeps working.
 
-The pipeline is designed to be as automated as possible.
+Reliability beats elegance.
 
-1.  **Run Module 1.** The script will create a `\Nessusscans\` directory on your Desktop.
-2.  Create a subfolder and place all your raw `.csv` Nessus scan files inside it.
-3.  Provide the path to this folder when prompted.
-4.  The script will generate the first output file (`Nessus - Schwachstellenliste mit Hosts sortiert.txt`).
-5.  **Run Module 2.** It will automatically pick up the file from Module 1 and generate the detailed analysis (`Auswertung.txt`).
-6.  **Run Module 3.** It will automatically read the analysis file from Module 2 and display the final, color-coded priority list.
+---
 
-### 🔮 What's Next? The Road to v2.0
+## 🛣️ From Chaos to Clarity – The 3-Step Pipeline
 
-Version 1.0 is a powerful, battle-tested foundation. It solves the core problem beautifully. But this is just the beginning.
+This project is a complete workflow consisting of three sequential modules.
 
-Imagine a future where this pipeline evolves to include:
-*   **Management-Ready HTML & PDF Dashboards**
-*   **Advanced Risk Scoring** based on asset criticality.
-*   **Automated Ticket Generation** for JIRA, ServiceNow, and other platforms.
-*   **A modular Pro-Version** that can be customized and integrated via APIs.
+### Module 1 – Aggregator
+Combines one or more raw Nessus CSV exports into a single, cleaned and categorized list.  
+Thousands of rows become a focused working set.
 
-This is the vision. **Nessus Scans scale v1.0** is the first, powerful step.
+### Module 2 – Correlation Engine
+Builds a master list of unique vulnerabilities and maps every affected host to each finding.
 
-### 📜 Disclaimer
+No guessing.  
+No manual correlation.
 
-This tool is designed to assist IT and security professionals in their daily workflow. Always validate findings with the original scan data. The author is not responsible for any actions taken based on the output of this tool.
+### Module 3 – Triage Visualizer
+Displays a concise, color-coded priority list directly in the console.  
+This is the “where to start fixing” view.
+
+---
+
+## 🎯 How to Use
+
+1. Run **Module 1**  
+   A `Nessusscans` directory will be created on your Desktop.
+2. Create a subfolder and place all Nessus `.csv` files inside.
+3. Provide the folder path when prompted.
+4. Output file is generated:  
+   `Nessus - Schwachstellenliste mit Hosts sortiert.txt`
+5. Run **Module 2**  
+   Generates `Auswertung.txt`.
+6. Run **Module 3**  
+   Reads the analysis and prints the final prioritized list.
+
+---
+
+## 🔮 Roadmap – v2.0 Vision
+
+Version 1.0 is intentionally raw and battle-tested.  
+v2.0 goes further:
+
+- Management-ready **HTML / PDF dashboards**
+- **Advanced risk scoring** with asset criticality
+- **Automatic ticket creation** (Jira, ServiceNow, etc.)
+- Fully **modular Pro version** with API integration
+
+v1.0 solves the pain.  
+v2.0 scales the impact.
+
+---
+
+## 📜 Disclaimer
+
+This tool supports security professionals in daily operations.  
+Always validate results against original scan data.  
+The author assumes no responsibility for actions taken based on the output.
+
+---
+
+## 📝 License
+
+MIT License  
+See the `LICENSE` file for details.
