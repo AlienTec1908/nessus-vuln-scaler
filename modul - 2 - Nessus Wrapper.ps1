@@ -10,7 +10,7 @@ function Ende([string]$titel){
 
          "____________________________________________________________________________________________________`n"
          
-          Write-Host -ForegroundColor Yellow "                                ENDE der $titel"
+          Write-Host -ForegroundColor Yellow "                                END of $titel"
 
          "____________________________________________________________________________________________________`n"
 }
@@ -26,7 +26,7 @@ function getstring( [string]$neustr ){
 cls
 
 "____________________________________________________________________________________________________`n"
-write-host -ForegroundColor Green "`n`n                          Anfang der Einträge und betroffenen Systeme `n" 
+write-host -ForegroundColor Green "`n`n                          Start of entries and affected systems`n" 
 "____________________________________________________________________________________________________`n"
 
 [array]$nessusHosts = cat $file | sort | ?{ $_ -notmatch '^\s*$' }
@@ -44,11 +44,11 @@ $P = $P.replace("$P","")
 $P = $P | sort | unique
 "____________________________________________________________________________________________________`n"
          
-  write-host -ForegroundColor Green "`n`n                          $($nessusHosts.Count) Einträge und $($P.count) Schwachstellen `n" 
+  write-host -ForegroundColor Green "`n`n                          $($nessusHosts.Count) Entries and $($P.count) vulnerabilities `n" 
 "____________________________________________________________________________________________________`n"
 
-$P; Ende "Schwachstellen"
-$Schwachstellen = "$($P.count) Schwachstellen `n " 
+$P; Ende "of vulnerabilities"
+$Schwachstellen = "$($P.count) vulnerabilities `n " 
  $Schwachstellen > "$env:USERPROFILE\Desktop\Nessusscans\Schwachstellenvonheute.txt"
 $P >> "$env:USERPROFILE\Desktop\Nessusscans\Schwachstellenvonheute.txt" 
 
@@ -62,7 +62,7 @@ for( $item = 0; $item -lt $nessusHosts.count; $item++ ){
 
      if( ! ($a | select-string -Pattern $b )){ "____________________________________________________________________________________________________`n" }
 
-} Ende "Einträge"
+} Ende "Entries"
 
 $fileauswertung = "$env:USERPROFILE\Desktop\Nessusscans\Auswertung.txt"
 
@@ -80,7 +80,7 @@ for( $i = 0; $i -lt $P.count; $i++ ){
 
 
      write-host -ForegroundColor Magenta "____________________________________________________________________________________________________`n"
-     write-host -ForegroundColor Cyan "    $count ).       betroffen sind von Schwachstelle : " -NoNewline
+     write-host -ForegroundColor Cyan "    $count ).       Affected by vulnerability : " -NoNewline
      write-host -ForegroundColor Yellow    $kurzer 
      write-host -ForegroundColor Magenta "____________________________________________________________________________________________________`n"
          
@@ -91,7 +91,8 @@ for( $i = 0; $i -lt $P.count; $i++ ){
      $Ausgabe   
      "`n`n"
 
-} Ende "Schwachstellengruppierung" 
+} Ende "of Vulnerability Grouping" 
+
 
 
  
